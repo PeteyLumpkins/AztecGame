@@ -15,6 +15,10 @@ class valueChanger {
         } else {
             console.log("true");
             this.currentValue -= direction;
+
+            $("#currentValue").val(this.currentValue);
+            console.log($("#currentValue"));
+
             return true;
         }
     }
@@ -24,13 +28,24 @@ var valueChange = new valueChanger(10);
 $(init)
 var htm="";
 function init() {
-    [ "Strength","Wisdom", "Charisma", "Loyalty"].forEach(makeStats)
-    $('input[type="number"]').niceNumber({
+    var currentValueLabel=$("<input/>", { "id":"currentValue", "value": 0, 
+    "disabled":"disabled" , "size":2});
+
+    var container=$("<div/>",{"id":"stats"});
+    $("body").append(currentValueLabel);
+
+    console.log(htm);
+    [ "Strength","Wisdom", "Charisma", "Loyalty"].forEach((stat)=>makeStats(stat, container));
+    console.log(htm);
+    htm+=container[0].outerHTML;
+
+    $("body").append(htm)
+    $('#stats input[type="number"]').niceNumber({
         onIncrement: ($currentInput, amount, settings) => change($currentInput, amount, settings, 1), 
         onDecrement: ($currentInput, amount, settings) => change($currentInput, amount, settings, -1), 
     });
-    console.log(htm)
 }
+
 function change($currentInput, amount, settings, direction) {
     if (!valueChange.change(direction, $currentInput)) {
         $currentInput.val($currentInput.val() - direction);
@@ -42,8 +57,10 @@ function change($currentInput, amount, settings, direction) {
     //     $currentInput.classList.remove('more-than-100');
     // }
 }
-function makeStats(item) {
+function makeStats(item, container) {
+
     var label=$("<div/>",{"html":item});
     var picker=$("<input/>", { "id":item,"type": "number", "value": 0 });
-    htm+=label[0].outerHTML+picker[0].outerHTML
+    // htm+=label[0].outerHTML+picker[0].outerHTML;
+    container.append([label, picker]);
 }
