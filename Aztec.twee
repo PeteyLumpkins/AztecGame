@@ -1,0 +1,649 @@
+:: StoryTitle
+Spanish Aztec War Ver 1.0
+:: StoryData
+{
+	"ifid": "5CAF53F2-B97C-45CA-9E53-CBD50086BDA5",
+	"format": "SugarCube",
+	"format-version": "2.3",
+	"start": "Faction Identification",
+	"zoom": 1
+}
+:: Story Stylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url("https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css");
+@import url("https://apps.tlt.stonybrook.edu/Aztec/master/style.css");
+body {
+	font-size:1.5rem;
+}
+#passages {
+	height:90%;
+	top:5%;
+}
+:: Story JavaScript [script]
+window.gameData={
+"faction":"Aztecs",
+"role":"Aguilar",
+"isLeader":true,
+"Aztecs_strength":12,
+"currentPassage":"Faction Identification",
+}
+var server="https://apps.tlt.stonybrook.edu/Aztec/master/"
+importScripts(
+	`${server}script.js`,
+	`${server}resize.js`,
+	`${server}picker.js`,
+	"https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js",
+"https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.js",
+"https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+);
+:: PassageHeader {"position":"143,20","size":"100,100"}
+<<print passage()>>
+:: Act 1: Setting the Stage {"position":"797,1077","size":"100,100"}
+Veracruz, April 20th, 1519
+ADD A LINK TO THE VERACRUZ STORY MAP PAGE HERE?
+An Aztec delegation composed of the Pochteca, Priest, Cacamatzín, and Cuauhtemoc  meets up with the Spaniards on the beaches of Veracruz.  The Aztec delegation comes bearing great gifts of gold and feathers.  The Spaniards must decide how to respond. 
+On the next page, all of the Spaniards and the participating Aztecs must meet up in the discussion group and get to know each other.  The Tlaxcalans and the remaining Aztecs should observe these interactions carefully. 
+Realize that the stakes for this meeting are very high. No matter what side you are on, this is your first encounter with your enemy, or maybe your allies? You will have very few opportunities to gather information about the other before you have to start developing a strategy of conquest, collaboration, or resistance. 
+You only have one day, think carefully about what you need to know about the other group. 
+In addition to getting to know each other on the main discussion board, you may want to talk and strategize within your faction.
+<<if $faction is "Aztecs" or  $faction is "Spaniards" >>
+SPANIARDS AND AZTECS GET [[Click through|Act 1 Scene 1]] to the next screen to begin the assignment.  Good luck, and use your time wisely!
+<<else>>
+TLAXCALANS GET  You observe these comings and goings [[from afar|Act 1 Scene 2 Tlaxcalans]].  Your sworn enemies and these strangers are meeting on the beach.  What is your wisest course of action?
+<</if>>
+:: Act 1 Scene 1 {"position":"490,1064","size":"100,100"}
+Aztec Delegation Encounters Cortes and Company on Beach
+Discussion Board
+Please complete the following assignment no later than 11:59 pm on DAY 1.
+ADD MAIN DISCORD SERVER LINK HERE?
+As you interact via this discussion board, put yourself in the shoes of your character. Confer with the other members of your faction and decide what kind of information will be of most use to you as you maneuver this new and unfamiliar relationship. What do you want to know about these strangers and how are you going to get them to reveal that information?
+Members of the Aztec delegation: It is your job to report back to Moctezuma and Tlacaelel the Younger. What do they want to know?
+All participants: You will have limited opportunities to interact freely with each other. Use this time wisely.
+[[CLick through|Act 1 Scene 2]] to continue.
+:: Act 1 Scene 2 {"position":"409,1198","size":"100,100"}
+After the meeting on the beach, the Aztecs return to Tenochtitlán to report to their leaders.  Meanwhile, the Spaniards must decide how to move forward. 
+Your next assignment will be to engage just with your own faction.  On the next page, you will have information that is just for your group, and you will interact with them alone.
+<<if $role is "Cortes">>
+Cortes, please [[click through|Cortes Secret Information Drop]] to continue your journey.
+<<elseif $faction is "Aztecs">>
+Aztecs, please [[click through|Act 1 Scene 2 Aztecs]] to return to Tenochtitlan and report of Moctezuma and Tlacaelel the Younger.
+<<elseif $faction is "Spaniards">>
+Spaniards, please [[click through|Act 1 Scene 2 Spaniards]] to convene on the beaches of Veracruz and discuss your next moves.
+<</if>>
+:: Cortes' Men leave Santiago {"position":"467,242","size":"100,100"}
+November 18th, 1519.  Just off the shore of Cuba.
+ADD LINK TO STORYMAPS HERE
+You stand on the deck of the ship watching the city of Santiago de Cuba recede towards the horizon.  The wind has caught the sails, and the ship creaks as it begins to heel.  You can barely hear Velázquez yelling into the wind, yelling at Cortés to turn around and come back. 
+Velázquez is mad, and he hasn't yet discovered that, under Cortés' orders, you and the other men have raided the city's main slaughterhouse, stealing all the provisions you hoped would last you through the uncertain adventures ahead.
+You watch as Cortés cups his hands to his mouth, shouting back to the governor "Forgive me, Your Worship, for this and similar things have to be done rather than thought about!"
+Cortés turns his back on the governor, looking at you and the rest of your compadres in arms.  
+You start to wonder, [[have you made a mistake|Spaniards Leave Cuba]]?
+:: Cortes Secret Information Drop {"position":"153,1299","size":"100,100"}
+Cortes
+Secret Information Drop
+Cortes, you have heard rumors and rumblings amongst your faction that they are planning a mutiny.  You don’t know whether or not this is true, but you are fearful for your life.  As you move to the group discussion board on the next screen, you must ensure that the entire faction is ready to follow you inland in pursuit of your dreams.
+Your decisions thus far have impacted your scores.  Consider where you stand with your men as you decide how to proceed.
+Your Strength is <<print $Cortes_Strength>>.
+Your Wisdom is <<print $Cortes_Wisdom>>.
+Your Charisma is <<print $Cortes_Charisma>>.
+Your Loyalty is <<print $Cortes_Loyalty>>.
+[[Click through|Act 1 Scene 2 Spaniards]] to the next page to engage with your faction on the group discussion board.
+:: Act 1 Scene 2 Aztecs {"position":"536,1299","size":"100,100"}
+Aztecs return to Tenochtitlan to make their report.
+Please complete the following assignment no later than 11:59 pm on DAY 2.
+The delegation has just returned from their journey to Veracruz. Use this discussion board to report back to Moctezuma and Tlacaelel the Younger. What information did you obtain and how might it be of use? What do you make of these strange men so close to your lands? 
+You have a bit of time to plan, but not much.  If the Spaniards follow you back to Tenochtitlan, what is the best way to handle them?
+ADD DISCORD AZTECS LINK HERE
+When you are finished, [[click through|Act 1 Scene 3]] to continue your journey.
+:: Act 1 Scene 2 Spaniards {"position":"281,1500","size":"100,100"}
+Please complete the following assignment no later than 11:59 pm on DAY 2.
+The Aztecs have just left.  What are you going to do next?
+Your resources include a translator, Malinche, and some local native guides who have offered to take you inland in pursuit of the Aztecs and their gold.  Your leader, Cortes, is eager to follow the delegation back to their city, but are you all eager to follow him?  The way forward will not be easy, both because of the uncertainty that lies before you in these unknown lands, but also because of the uncertainty that lies behind you. Your expedition was not blessed by the King’s representative in Cuba. Will moving forward make the King more angry with you than he already might be? 
+On the discussion board, negotiate what happens next, be sure to consider all of these issues in making your decision.
+ADD DISCORD SPANIARDS DISCUSSION LINK HERE?
+When you have finished, [[click through|Act 1 Scene 3]] to continue your journey.
+:: Act 1 Scene 2 Tlaxcalans {"position":"1256,1164","size":"100,100"}
+The Tlaxcalans debate their next move.
+Please complete the following assignment no later than 11:59 pm on DAY 2.
+The delegation has just returned from their journey to Veracruz. Use this discussion board to report back to Moctezuma and Tlacaelel the Younger. What information did you obtain and how might it be of use? What do you make of these strange men so close to your lands? 
+You have a bit of time to plan, but not much.  If the Spaniards follow you back to Tenochtitlan, what is the best way to handle them?
+ADD DISCORD TLAXCALANS LINK HERE
+What would you like to do?  You can decide as a group to [[do nothing|Tlaxcalans let Cortes move inland]], you can decide as a group to [[attack Cortes on the beach|Tlaxcalans attack Cortes in Veracruz]], or you can [[attack the Aztecs on their way back to Tenochtitlan|Tlaxcalans Attack Aztecs on return journey]].
+:: Act 1 Scene 3 {"position":"402,1626","size":"100,100"}
+Cortes Heads Inland
+Veracruz, Summer of 1915 
+ADD LINK FOR STORYMAPS HERE DESCRIBING JOURNEY INLAND
+Cortes and his men have decided to forge inland, in pursuit of the Aztec capital and the gold they believe they will find there. ALL players must submit a journal entry in which they record their thoughts and feelings at this point.
+Spaniards:
+You’ve heard that this journey is very dangerous, through harsh weather and over treacherous terrain. You are also moving inland without the blessing of the King. How do you feel about moving inland and why?
+Aztecs:
+Spies have informed you that the Spaniards have set out for Tenochtitlán. Are you ready for the eventual arrival of the Spaniards? Why or why not?
+Tlaxcalans:
+You have just been observing thus far, but you’ve been paying close attention to rumors that a group of strange men are headed towards your territory, on the way to Tenochtitlán. How do you feel about the Aztecs and about the Spaniards based on the rumors that have been floating around?
+Please [[click through|Assignment 1]] to find your next assignment.
+:: Assignment 1 {"position":"403,1779","size":"100,100"}
+Assignment 1:  
+Please complete the following assignment no later than 11:59 pm on DAY 4.
+Write one paragraph reflecting on your experiences thus far.  Consider your opinions of the opposing team, but also reflect on the relationships you are forming within your own faction.
+Spaniards:
+You’ve heard that this journey is very dangerous, through harsh weather and over treacherous terrain. You are also moving inland without the blessing of the King. How do you feel about moving inland and why?
+Aztecs:
+Spies have informed you that the Spaniards have set out for Tenochtitlán. Are you ready for the eventual arrival of the Spaniards? Why or why not?
+Tlaxcalans:
+You have just been observing thus far, but you’ve been paying close attention to rumors that a group of strange men are headed towards your territory, on the way to Tenochtitlán. How do you feel about the Aztecs and about the Spaniards based on the rumors that have been floating around?
+[[Click through|Into the Mountains]] once you have completed your assignment.
+:: Tlaxcalans let Cortes move inland {"position":"857,1463","size":"100,100"}
+You have decided to let Cortes move inland.  
+Please [[click through|Act 1 Scene 3]] to continue your journey.  TLAXCALANS GAIN ONE WISDOM POINT.
+:: Tlaxcalans attack Cortes in Veracruz {"position":"1007,1568","size":"100,100"}
+You attack Cortes, but really, you've moved too soon.  The battle ends in a draw, but your side has been weakened, and you have put the Spaniards on high alert.  
+Hopefully, this doesn't leave you vulnerable down the road! If only you had been more patient!
+[[Click through|Act 1 Scene 3]] to continue and find out.  TLAXCALANS LOSE 1 STRENGTH POINT FOR THE FACTION
+:: Tlaxcalans Attack Aztecs on return journey {"position":"1190,1672","size":"100,100"}
+You attack the Aztecs, but, like always, the battle ends in a draw.  Both sides have been weakened, and you have increased hosilities between your groups with these strangers on the shore.  
+I hope you don't regret this decision later!
+[[Click through|Act 1 Scene 3]] to continue. TLAXCALANS LOSE ONE STRENGTH POINT
+:: Cortes Leaves Santiago {"position":"710,251","size":"100,100"}
+November 18th, 1519.  Just off the shore of Cuba.
+ADD LINK TO STORYMAPS HERE
+You stand on the deck of the ship watching the city of Stantiago de Cuba recede towards the horizon.  The wind has caught the sails, and the ship creaks as it begins to heel.  You can barely hear Velázquez yelling into the wind, yelling at you to turn around and come back. 
+Velázquez is mad, and he hasn't yet discovered that, under your orders,  the men have raided the city's main slaughterhouse, stealing all the provisions they could carry. You hope they will last you through the uncertain adventures ahead.
+As the governor's rowboat rapidly loses ground, you cupt your hands to your mouth, shouting back to Velázquez, "Forgive me, Your Worship, for this and similar things have to be done rather than thought about!"
+You take a deep breath, and turn your back on the governor.  You face your men, and you see the nervousness and doubt on their faces.
+You start to wonder, [[can you convince them to continue on this journey|Spaniards Leave Cuba]]?
+:: Spaniards Leave Cuba {"position":"863,517","size":"100,100"}
+<<switch $role>>
+<<case "Cortes">>
+As Cuba disappears behind the horizon, you are faced with a ship full of nervous, uncertain men.  You MUST convince them to move foward. 
+Adjourn to the Discord discussion board and convince them, persuade them, bully them, do what ever you have to do to move them forward.  
+<<case "Cristobal" OR "Alvarado" OR "Garrido">>
+As Cuba disappears behind the horizon, you find yourself feeling increasingly anxious and uncertain. You must continue on your journey, but why will you continue? 
+Adjourn to the Discord discussion board and listen to what Cortes has to say. Decide for yourself How he will persuade you.
+<</switch>>
+ADD LINK FOR SPANIARDS DISCORD DISCUSSION BOARD
+Have you discussed this and come to an understanding? Answer yes or no. 
+<<textbox "$Span_Cuba" "">>
+ [[continue on|The Spaniards Decide to Continue]].
+:: Spaniards arrive at Yucatan {"position":"680,888","size":"100,100"}
+[[CLICK THROUGH TO CONTINUE ON TO VERACRUZ|Spaniards Meet Malinche]]
+:: Into the Mountains {"position":"403,1925","size":"100,100"}
+Into the Mountains
+Your decisions are made, and the adventure continues!
+Once you have submitted your personal reflection #1, you will be able to continue on to Act 2. There, the Spaniards will battle the people of Tlaxcala and visit the religious pilgrimage center of Cholula, making both friends and enemies along the way.  
+Note: Act 2 will open at 11:59 pm on DAY 4, however, it will not be available until you have also submitted your assignment.
+:: Faction Identification {"position":"540,3","size":"100,100"}
+Welcome to the Spanish Aztec War! 
+You are part of the <<print $faction>>
+Let me tell you a bit about your people: 
+<<switch $faction>>
+<<case "Aztecs" >>
+ You are the mighty Aztec Empire! You are conquerors of central Mexico, who have claimed vast stretches of territory and stricken fear into the hearts of your enemies--the delicious hearts of your enemies! It is now spring of 1519, and you’ve received word that a group of strange men have landed on your shores. Reports indicate that these men do not come from neighboring states that remain to be conquered, but have instead arrived from the sea, traveling on small islands made of wood. They bring with them giant deer, like nothing seen before, and a group of Mayan slaves. You are curious about these visitors and send a delegation to investigate. What is their purpose here? 
+ <<case "Spaniards">>
+You are bold and noble Spaniards! You have set forth into the unknown to claim new lands for the Holy Roman Emperor, Charles V, and new converts to the Catholic faith. It is spring of 1519, and you have made your way up the coast of what appears to be an enormous landmass, into unknown territory. You have unfurled your flag, loudly proclaimed the requerimiento for all to hear, and have succeeded in establishing communication with the natives. And what they have said draws your attention. They tell you of a great city that lies to the west, a city full of gold and countless wonders. You can barely contain your excitement. And yet, there’s one small problem: the King has only granted his permission to explore the coast and not to venture inland. You already left Cuba against the orders of the Governor, Diego Velazquez, who revoked his own permission shortly before you left. Will you risk violating the orders of the crown to pursue what may be little more than a rumor?
+<<case "Tlaxcalans">>
+ You are indomitable Tlaxcalan warriors! For generations, you have fought back against the Aztecs and maintained your independence. It is now spring of 1519, and you’ve received word that a group of strange men have landed on the shores to the east. Reports indicate that these men arrived from the sea, traveling on small islands made of wood. They bring with them giant deer, like nothing seen before, and a group of Mayan slaves. It is clear that they are no friends of yours, but are they friends of your enemies? When you hear that they plan to advance towards the Aztec capital of Tenochtitlán, you prepare yourself for battle, as it seems likely they will cross through your territory--a territory you have defended valiantly until now.
+ <</switch>>
+<<if $faction is "Aztecs">>
+is Aztec
+<<if ndef $Aztecs_strength or $Aztecs_strength is "">>
+Aztec Strength Undefined
+<<set $Aztecs_strength=random(10,15)>>
+<</if>>
+Your faction's starting strength is: <<print $Aztecs_strength >>
+<</if>>
+<<if $faction is "Spaniards">>
+<<if ndef $Spaniards_strength  >>
+<<set $Spaniards_strength=random(10,15)>>
+<</if>>
+Your faction's starting strength is: <<print $Spaniards_strength >>
+<</if>>
+<<if $faction is "Tlaxcalans">>
+<<if  ndef  $Tlaxcalans_strength >>
+<<set $Tlaxcalans_strength=random(10,15)>>
+<</if>>
+Your faction's starting strength is: <<print $Tlaxcalans_strength >>
+<</if>>
+Now let's [[learn about your role|Character Identification]]!
+:: Act 2 {"position":"2055,29","size":"100,100"}
+Plains of Puebla, September 2nd-20th, 1519
+The Spaniards arrive on the Plains of Puebla, and they encounter a hostile force of indigenous Tlaxcalans.  A battle rages for more than three weeks, and ultimately, the Spaniards manage to prevail.  The Spaniards win, but they don’t win easily.
+SPANIARDS GET [[Click through|A Spanish Victory]] to meet with your fellow Spaniards and discuss your experiences on the field of battle.
+TLAXCALANS GET [[Click through|Act 2 Scene 1: An Unexpected Loss for Tlaxcala]] to meet with your fellow Tlaxcalans to discuss your experiences on the battle field.
+AZTECS GET [[Click through|Act 2 Scene 1-X: Aztecs observe from Tenochtitlan]] to discuss your perspectives on these goings on.
+:: A Spanish Victory {"position":"1797,148","size":"100,100"}
+Plains of Puebla, September 20th, 1519
+You’ve won a victory against the Tlaxcalans, but it was not easy.  They are fierce warriors.  You lost men in battle, and even with your “superior” weapons, it took three weeks of hard fighting.  
+How does this experience shape your opinion of your indigenous opponents? How will you treat the Tlaxcalans?  Do you trust them? Does this impact your thoughts about how you will approach the Aztecs? What lessons did this experience give you?
+ADD LINK TO SPANIARDS DISCORD SERVER
+When you have finished discussing and strategizing, [[enter the city of Tlaxcala|Scene 2-X:  Tlaxcala, September 23, 1519]] to establish peace terms with the Tlaxcalans.
+:: The Aztec Legend of Queztalcoatl {"position":"907,258","size":"100,100"}
+Aztecs, over the last 200 years, you have vanquished your enemies one by one to become the most powerful city-state in central Mexico. Your first leader, Acamapichtli, was a son of the Culhua, descended from the Toltecs. This lineage secured his political legitimacy, and with him that of the empire. Religious legitimacy has been harder to come by, however, for it must be granted by the god Quetzalcoatl and the priests who wield his power.
+Many moons ago, during the time of the 4th sun, Quetzalcoatl walked the Earth and ruled over the sacred city of Tollan. Jealous of his power, Quetzalcoatl’s brother, Tezcatlipoca, disguised himself as a sorcerer and tricked Quetzalcoatl into drunkenly cavorting with his sister, the priestess Quetzalpetlatl. The next day, Quetzalcoatl left Tollan in shame, never to return. Quetzalcoatl died in exile, whereupon he was cremated and his remains mixed with the blood of four sacrificed children to symbolize his heart. The heart was then placed in a wooden box and locked in one of the many temples that dot the landscape of central Mexico. The priests who guard this temple hold great power and only they can grant [[the blessing that you seek|The Aztec Quest for Legitimacy]].
+:: The Tlaxcalan Legend of Quetzalcoatl {"position":"1123,259","size":"100,100"}
+Tlaxcalans, over the last 200 years, you have watched the Aztecs vanquish their enemies one by one to become the most powerful city-state in central Mexico. Their first leader, Acamapichtli, was a son of the Culhua, descended from the Toltecs. This lineage secured his political legitimacy, and with him that of his empire. Religious legitimacy has been harder to come by, however, for it must be granted by the god Quetzalcoatl and the priests who wield his power. 
+Many moons ago, during the time of the 4th sun, Quetzalcoatl walked the Earth and ruled over the sacred city of Tollan. Jealous of his power, Quetzalcoatl’s brother, Tezcatlipoca, disguised himself as a sorcerer and tricked Quetzalcoatl into drunkenly cavorting with his sister, the priestess Quetzalpetlatl. The next day, Quetzalcoatl left Tollan in shame, never to return. Quetzalcoatl died in exile, whereupon he was cremated and his remains mixed with the blood of four sacrificed children to symbolize his heart. The heart was then placed in a wooden box and locked in one of the many temples that dot the landscape of central Mexico. The priests who guard this temple hold great power and only they can grant [[the blessing that you seek|The Tlaxcalan Quest for Legitimacy]].
+:: The Omen {"position":"1069,766","size":"100,100"}
+You return from your journey to find the city buzzing with news. One of your spies has just returned from the coast, where a band of strangers recently arrived from across the sea. The strangers are pale in skin and covered in hair. 
+Upon hearing the news, you reflect upon a series of omens that have occurred in recent years. 
+First, a fiery comet appeared in the sky and showed itself for a full year.
+Second, a fire consumed the Temple of Huitzilopochtli that could not be put out. When the residents of Tenochtitlán threw water upon the fire, it only grew stronger.
+Third, lightning struck the Temple of Xiuhteuctli, despite the fact that it was barely raining.
+Fourth, a comet fell from the sky in the middle of the day. The comet had three tails and where they were seen, they made a great noise, like the sound of rattles.
+Fifth, the waters of Lake Texcoco set fire, boiling and bubbling, destroying houses along the shore.
+Sixth, at night, a woman could  be heard crying out, “O my children, we are about to go forever.” “O my children, where am I to take you?”
+Seventh, the residents of Lake Texcoco caught a strange bird, like a crane. Its skull was deformed and reflected the stars, like a mirror. When Moctezuma peered into the mirror, he saw a group of men marching, outfitted for war and carried on the backs of deer.
+Eighth, strange creatures appeared in the city, creatures with two heads but only one body. When they were taken to Moctezuma, he looked upon them and they disappeared.
+LINK TO DISCORD. Given the new information you have just received, what do you make of these omens? Moctezuma, you may want to consult with your priest.
+[[Act 1: Setting the Stage]]
+:: Rumors from the Coast {"position":"1426,863","size":"100,100"}
+You return from your journey to find the village buzzing with news. One of your spies has just returned from the coast, where a band of strangers recently arrived from across the sea. The strangers are pale in skin and covered in hair. They have been giving gifts to people of the coast and winning their affection. These coastal people are allied to the Aztecs, but have been brutalized by them. Like so many others in the empire, they harbor deep resentment for their Aztec overlords.
+Rumor has it that the strangers have been warned about the Aztecs, but show little fear. They have asked many questions about the Aztec capital of Tenochtitlán and how they might reach it.
+LINK TO DISCORD and discuss amongst yourselves how you feel about this news.
+[[Act 1: Setting the Stage]]
+:: Act 2 Scene 1-X: Aztecs observe from Tenochtitlan {"position":"2320,157","size":"100,100"}
+Tenochtitlán, September 20th, 1519
+You are watching from afar as the Spaniards beat the Tlaxcalans.  You’ve been trying to conquer the Tlaxcalans for decades, and yet, after only three weeks, the Spaniards beat them. What do you think about this? Does this change any of your thoughts about how you will deal with the Spaniards?  
+Does this change your relationship with the Tlaxcalans? Do you reach out to the Tlaxcalans and attempt to form an alliance? 
+Maybe the ease with which the Spaniards beat them is just confirmation of your low opinion of the Tlaxcalans. 
+ADD LINK TO AZTEC DISCORD SERVER.
+[[Observe|Act 2 Scene 2-X: The Aztecs Observe the New Alliance and Make Plans]] as the Tlaxcalans and Spaniards make peace.
+:: Act 2 Scene 1: An Unexpected Loss for Tlaxcala {"position":"2135,170","size":"100,100"}
+Plains of Puebla, September 20th, 1519
+You’ve been beaten by the Spaniards and you must now invite them into your city to negotiate peace.  You are fierce and savvy warriors, having defended yourselves against the Aztec Empire for decades.  
+So now what?  Do you capitulate completely to the Spaniards and throw your lot in with them? Maybe your successful resistance to the Aztec Empire is based on your ability to play the long game politically rather than beat them in battle? 
+What is your strategy moving forward? Do you throw your lot in with the Spaniards? Do you try to form an alliance with your old enemies, the Aztecs? Or can you come up with a strategy that allows you to play this alone and survive?
+ADD LINK TO TLAXCALAN DISCORD SERVER
+Prepare yourself, the Spaniards are [[now entering your city|Scene 2-X:  Tlaxcala, September 23, 1519]] ready to negotiate your new relationship.
+:: Scene 2-X:  Tlaxcala, September 23, 1519 {"position":"1818,507","size":"100,100"}
+Tlaxcala, September 23rd, 1519
+You’ve been mortal enemies for three weeks, and now you must negotiate peace terms.  How will you move forward together?  
+Spaniards, can you trust the Tlaxcalans? 
+Tlaxcalans, do you trust the Spaniards? Will you help them or will you secretly ally with the Aztecs?
+Get to know each other on the main discussion board and negotiate your terms moving forward.  
+Once you're done, [[continue on to Cholula|Act 2 Scene 3 A Visit to Cholula]]
+:: Act 2 Scene 2-X: The Aztecs Observe the New Alliance and Make Plans {"position":"2254,508","size":"100,100"}
+Tenochtitlán, September 23rd, 1519
+For years, the Tlaxcalans have been your fiercest opponents and have remained outside your expanding empire. Now, your spies report back that they have formed an alliance with the Spaniards. What do you make of this? Can you intervene and, if so, should you? 
+The combined Spanish and Tlaxcalan forces are now marching towards Tenochtitlán. How will you prepare for their arrival? What do you think will be the best way to deal with them when they arrive?
+If you want, you may send spies to the main discussion board to observe the peace negotiations, while, on your own discussion board, you should plan for the arrival of the combined forces.
+You [[wonder how much time you have|Aztecs watch Spaniards head to Cholula]]
+:: Aztecs watch Spaniards head to Cholula {"position":"2245,707","size":"100,100"}
+Tenochtitlán, October 1519
+While the Spaniards enjoy the hospitality of their Cholulan hosts, you watch closely. The Cholulans only recently became a part of your empire, leaving a long alliance with the Tlaxcalans. You anxiously await news from inside the city. What do you make of this scenario? What concerns do you have?
+You can either decide to [[do Nothing|Aztecs do not interfere with events in Cholula]] or you can send a delegation to Cholula and [[set up an ambush for the Spaniards|Aztecs ambush Spaniards in Cholula]]
+:: Act 2 Scene 3 A Visit to Cholula {"position":"1800,708","size":"100,100"}
+Cholula, October 14th, 1519
+With the Tlaxcalans now leading the way, the combined forces head towards Tenochtitlán. From Tlaxcala, they make their way to the city of Cholula, where they camp for the night. Flanked by the snow-covered peaks of two volcanoes, Cholula is an important religious and ceremonial center. The Cholulans only recently became a part of the Aztec empire, defecting from a long-standing alliance with the Tlaxcalans.
+As the Spaniards prepare to camp outside the city, a delegation of Cholulan nobles invites them in--though all of their Tlaxcalan companions must remain outside. When the Spaniards enter the city, they are welcomed with a feast and offered beds to rest for five days and prepare for the remainder of the journey. 
+Malinche, as you enter the city, an old woman tugs at your shawl, [[she seems to want to tell you something|Malinche Secret Information Drop]]
+Spaniards, you [[enter the great city of Cholula|Act 2 Scene 3-X: Spanish are Invited into the City of Cholula]], excited to see all the wonders it holds.
+Tlaxcalans, you must [[remain outside the city walls|Act 2 Scene 3-X: The Tlaxcalans Observe Events in Cholula]] wondering what your new allies are up to.
+:: Malinche Secret Information Drop {"position":"1664,835","size":"100,100"}
+Malinche:
+During your stay in Cholula, you are approached by a local woman who wishes to speak with you in private. She informs you--and you alone--that the Spaniards have walked into a trap. The leaders of the city are planning an ambush and there is an Aztec army hidden nearby. 
+ 
+Do you believe this woman or not? What do you do with the information? 
+You have two choices, [[either you can tell the Spaniards|An Ambush in Cholula]] and see how they react, or you can [[keep your mouth shut and stay out of it|A Quiet Interlude in Cholula]], leaving the Spaniard's fate in the hands of the Cholulans.
+:: Act 2 Scene 3-X: Spanish are Invited into the City of Cholula {"position":"1959,835","size":"100,100"}
+Cholula, October 1519
+Over the course of your stay, anything can happen in Cholula and what happens in Cholula does NOT stay in Cholula.  At the end of your stay, you must write a public postcard on the main discussion board detailing your stay in Cholula.  Be honest, there are spies everywhere and they’ll know if you aren’t accurately representing events.
+There are 2 steps to this assignment:
+Meet with the other members of your faction to compose your postcard. 
+Visit the group discussion board to present your postcard to the other teams. 
+Cortés, please tell the rest of your team if Malinche has told you [[anything of note|An Ambush in Cholula]]. If not, [[continue to enjoy your time|A Quiet Interlude in Cholula]] in Cholula.
+:: Act 2 Scene 3-X: The Tlaxcalans Observe Events in Cholula {"position":"2112,853","size":"100,100"}
+Double-click this passage to edit it.
+:: An Ambush in Cholula {"position":"1703,1067","size":"100,100"}
+Double-click this passage to edit it.
+:: A Quiet Interlude in Cholula {"position":"1952,1066","size":"100,100"}
+Double-click this passage to edit it.
+:: Aztecs do not interfere with events in Cholula {"position":"2272,849","size":"100,100"}
+Double-click this passage to edit it.
+:: Aztecs ambush Spaniards in Cholula {"position":"2480,850","size":"100,100"}
+Double-click this passage to edit it.
+:: Act 2 Scene 5: Through the Mountain Pass {"position":"2141,1247","size":"100,100"}
+Mountains of central Mexico, November 1st, 1519
+With the events of Cholula behind them, the Spaniards and their Tlaxcalan allies must head through the mountain passes at the foot of the great smoking mountain, Popocatepetl.
+Meanwhile, from the Valley below, the Aztecs watch as the strangers approach, marching shoulder to shoulder with their traditional enemies.
+As you make this next stage in your journey, take a moment to reflect on where you are and how you feel about what lies ahead.    
+Spaniards:
+Your journey has been complicated so far, and it makes you think about what lies ahead.  How do you feel heading down into the Valley of Mexico? How do you feel about your allies the Tlaxcalans?  What can you do to maximize your chances of success--and survival!
+Tlaxcalans:
+You’ve thrown your lot in with the Spaniards, or have you?  How have the events as they unfolded at Cholula impacted your relationship with the Spaniards? Have you developed any friendships with any of the conquistadors, or do you see them as a homogenous group of strangers still?  As you move forward, do you feel trapped between the Aztecs and the Spaniards, or can you play this game better than both and come out on top?
+Aztecs
+The strangers march towards you, shoulder to shoulder with your enemies, the warriors of Tlaxcala. Tlaxcala is a tiny city state compared to your massive empire, and the Spaniards are few in number, and yet the events that have occurred so far may give you pause.  How can you prepare for what comes, and how will you ensure not only your civilization’s survival, but your own?
+[[Click through|Assignment 2]] to complete your second assignment.
+:: Assignment 2 {"position":"2143,1458","size":"100,100"}
+Double-click this passage to edit it.
+:: Untitled Passage {"position":"2258,1052","size":"100,100"}
+Double-click this passage to edit it.
+:: Aguilar Among the Maya {"position":"311,247","size":"100,100"}
+ADD STORYMAP LINK HERE
+It’s been eight years since you were shipwrecked on the way to Santo Domingo; eight years that you’ve been living as a slave among the Maya. All this time, you’ve remained loyal to your vows as a Franciscan Friar, refusing to take a wife and fully embrace the Mayan culture. After all these years, however, you have become fluent in the Yucatec Maya language. 
+Today began just like any other day and you’ve been going about your regular tasks. As you sweep the entrance to the temple, you overhear a conversation between two of the most important men in the village. 
+[[Here is what they said|Maya Gossip]]:
+:: Malinche in Slavery {"position":"103,524","size":"100,100"}
+Now that you've augmented the historical record, you can move forward.
+[[CLICK THROUGH TO |Spaniards Meet Malinche]]
+:: Spaniards Meet Malinche {"position":"98,796","size":"100,100"}
+[[CLICK THROUGH TO CONTINUE ON TO VERACRUZ|Act 1: Setting the Stage]]
+:: Malinche's Childhood {"position":"121,227","size":"100,100"}
+Malinche, you will go down in history for living an extraordinary life, but historian Camilla Townsend has noted that your childhood was, in fact, quite ordinary. Your earliest years were marked by Nahua rituals, lessons, and roles assigned to you at birth. Even your sale into slavery was not uncommon, but is instead reflective of the social and political dynamics that defined your world.
+That story is one you know well, but it will be lost to future generations. Here is your chance to correct the historical record.
+INSTRUCTIONS FOR STORYMAPS/SURVEY 123. MALINCHE MUST CREATE A MAP OF HER STORY, RECORDING DETAILS OF HER LIFE AT DIFFERENT LOCATIONS, STARTING WITH THE PLACE OF HER BIRTH. AFTER COMPLETING THE STORYMAP, ANSWER QUESTION IN TEXT BOX TO CONFIRM COMPLETION.
+[[Yes|Malinche in Slavery]]
+[[No|Return to Malinche's Childhood]]
+:: Character Identification {"position":"546,123","size":"100,100"}
+Your part is <<print $character >>
+Here is a little bit of your backstory: 
+<<switch $role>>
+<<case "Cortes">>
+Hernán Cortés was born in Medellín, Spain to a family of minor nobility, sometime around 1485. Though his parents sent him to get an education, he soon grew restless and decided to seek his fortune in the New World. He arrived on the island of Hispañola in 1504 and took part in his first expedition to Cuba with Diego Velazquez in 1511. Cortés was granted permission to carry out his own expedition up the coast of the American mainland in 1518, only to have it cancelled by Velazquez, now the Governor of Cuba and wary of Cortés’ rising influence. Not one to bow to authority, Cortés set sail to seek his fortune, taking with him a crew of 500 men and 11 ships. He first made landfall at Tabasco and made his way along the shoreline, heading north to eventually arrive in Veracruz, where our story begins. Cortés was known for his intelligence, and he proved himself willing to take great risks in pursuit of his goals, often displaying a tendency toward recklessness. A brilliant military leader, Cortés would never prove himself an adept administrator, and preferred military pursuits to the day-to-day requirements of governance.
+<<case "Mariana">>
+Little is known of the early life of the woman who would claim her place in history as La Malinche, or Doña Marina to the Spanish. It is believed that Malinche was born to a noble Nahuatl-speaking family, possibly in a tributary state of the Aztec Empire. Sometime between the ages of 8 and 12 years old, she was either kidnapped or sold into slavery among the Maya people of southeastern Mexico. Early in Cortés’ journey up the coast of Mexico, he encountered a group of Maya at Potonchan (in present-day Tabasco). After the Spaniards bested the Maya in a bloody battle, they were rewarded with a “gift” of twenty young women. Among them was Malinche. After years among the Maya, she now spoke both Maya and Nahautal, the Aztec language. Along with Gerónimo Aguilar, who was able to translate Maya into Spanish, she became a vital interpreter for Cortés during his battle with the Aztecs. She also became his mistress and would eventually bear him a son, Martín, who would be remembered by history as the original mestizo. Malinche played a crucial role in Cortés’ battle with the Aztecs and has long been remembered as a traitor by the Mexican people--an indigenous woman who sided with the invading Spaniards. Recently, however, Malinche’s story has been reimagined. Sold into slavery, first (possibly) by her own family, and later by her Mayan captors, it is worth asking how much choice Malinche really had. Her motives, and her true allegiances, remain a mystery to this day.
+<<case "Alvarado">>
+Pedro de Alvarado was born in Extramadura, Spain, a region then known for its poverty and harsh climate. It was the difficulty of life in Extremadura that drove many of its men to seek their fortunes in the New World, Alvarado being just one of many. Alvarado arrived on the island of Hispañola along with his father, a nobleman, and his four brothers in 1510. Nine years later, he served as commander of one of the eleven ships that set sail with Hernán Cortes for the coast of Mexico. Alvarado and his four brothers wielded a good deal of power among the Spanish population of Hispañola, and they were known to be loyal supporters of Cortés, notably in his conflict with the Governor of Cuba, Diego Velazquez. Alvarado was known for cruelty and a willingness to take human life. However, it’s worth noting that this quality wasn’t unusual among conquistadors. Not content with his adventure in Mexico, he would go on to led expeditions in Central America and northern Peru, where he left behind a legacy of greed and violence.
+<<case "Aguilar">>
+Gerónimo de Aguilar was educated by the church, and left his home in Spain at a young age to serve as a Franciscan Friar in the New World. In 1511, while sailing from Darien to Santo Domingo, his ship was wrecked on the shores of Jamaica. After washing up on the coast of the Yucatan Peninsula, Aguilar was captured and sold into slavery among the Maya people. For 8 years, he lived among the Maya and in that time learned to speak their language. In 1519, Cortés landed in the Yucatán, where he soon heard of two Spaniards living among the people there. Aguilar was not the only survivor of the wreck. His companion, Gonzalo Guerrero, also lived among the Maya all those years. However, unlike Aguilar, who refused the temptation of the flesh, Guerrero had taken a wife and chose to remain among the Maya when he received word from Cortes. Aguilar, on the other hand, was overjoyed at the opportunity to return to his countrymen. He would soon prove to be an invaluable member of the expedition when they discovered that an enslaved woman who was gifted to them during their journey up the coast spoke both Maya and the Aztec language, Nahuatl. That woman’s name was Malinche, or Marina to the Spaniards. Maliche was able to translate Nahuatl to Maya, and Aguilar Nahuatl to Spanish. Between the two of them, Aguilar and Malinche would serve as crucial interpreters, giving Cortes and his men the advantage of language in their interactions with the Aztecs.
+<<case "Garrido">>
+Juan Garrido’s date and place of birth are unknown, but we believe that he was born somewhere in West Africa around 1480. From there, he made his way to Portugal, either as a slave or by his own free will. What we do know is that he traveled to Santo Domingo as a free man in 1503 and became one of the first Africans to set foot in the New World. Garrido was already a well-seasoned soldier by the time he joined Cortés on his expedition in 1519, having participated in earlier expeditions to both Cuba and Puerto Rico. Garrido survived the battle for Tenochtitlán and remained loyal to Cortés in the years thereafter, joining him on later missions of conquest in places like Baja California and even accompanying Cortés on his return to Spain in 1540. Like so many of Cortés’ men, Garrido became a landholder and a slave owner, running a modest estate that relied on enslaved indigenous and African workers. When he died around 1547, Garrido left behind a wife and three children. Though he was not the only one, he remains the best known of the black conquistadors.
+<<case "Cristobal ">>
+Cristóbal de Olid arrived in Cuba in 1518 to work under the command of the Governor of Cuba, Diego Velazquez. He left the island as part of Cortés’ exhibition only a year later, but his loyalties often lie with his former employer, Velazquez. So shaky was his allegiance to Cortés, in fact, that years later he would be caught plotting the captain’s assassination and was eventually disemboweled by Cortés supporters for his disloyalty. Olid was one of a handful of men to survive the entire war against the Aztec Empire. According to Matthew Restall, “he was not a man of subtlety: he liked to wade, wielding his sword, into indigenous warriors and crowds” (Restall, 364). Following the war with the Aztecs, he would go on lead expeditions to Michoacán and Honduras.
+<<case "Moctezuma">>
+Moctezuma II became the 9th Aztec Emperor, the huey tlatoani, in 1502. He has been remembered in history as a weak ruler who vacillated in the face of the foreigners who sought to take control of his empire. One long-standing theory was that he fell victim to a prophecy that foretold the return of the god Quetzalcoatl, believing Cortés to be none other than the god reincarnate. In recent years, however, historians have begun to dismantle the image of Moctezuma as a weak and ineffective leader. They have argued instead that Moctezuma was a competent and powerful emperor, and that the long-held theory that the emperor was crippled by his belief that Cortés was, in fact, the god Quetzalcoatl was invented after the fact by Aztec historians looking to make sense of their mighty emperor’s stunning defeat. Discarding the theory of a weak and indecisive Moctezuma sheds a whole new light on the events that unfolded in 1519. Which version do you believe?
+<<case "Tlacaelel">>
+Tlacaelel Xocoyotl is not to be confused with the first Tlacaelel, who was one of the most shrewd politicians in Aztec history. This Tlacaelel, let’s call him Tlacaelel the Younger, was the 4th Aztec cihuacóatl, which translates roughly to Prime Minister or Interior Minister. The job of the cihuacóatl was to take care of the day to day affairs of Tenochtitlán, handling finances and serving as supreme judge, among other things. Second only to the huey tlatoani, the Aztec Emperor, the cihuacóatl stepped into his role in the event that the huey tlatoani had to leave the city. The cihuacóatl wielded substantial power, collecting large amounts of tribute from subject people and conferring with a council of high nobles to choose the next huey tlatoani, when questions of succession arose.
+<<case "Cuauhtemoc">>
+The last Aztec Emperor, Cuauhtémoc was likely a mere 21 years old when he was named huey tlatoani in early 1521. In contrast to his uncle, Moctezuma II, who was painted as weak and blamed for the Aztec loss, Cuauhtémoc occupies a key place in the pantheon of Mexican heroes. One need only stroll through the streets of any Mexican city today to find homages to the last Aztec Emperor, in street names or monuments. Cuauhtémoc is remembered as being brave, valiant, and stoic. He fought hard against the Spanish, and when captured, he refused to give them the information they demanded, even when his captors subjected him to torture.
+<<case "Cacamatzin">>
+Cacamatzín was a son of Nezahualpilli, the huey tlatoani of Texcoco, a member state of the Aztec Triple Alliance along with Tenochtitlán and Tlacopan. When Nezahualpilli died in 1515, Cacamatzín was one of three claimants to the throne, along with two of his many brothers. With the support of his uncle, Moctezuma II, he won out over his brothers to take the office and become the second-ranked leader in the Triple Alliance. When Cortés and his men arrived in the Valley of Mexico, in November 1519, Cacamatzín led the delegation that went out to meet them and lead them to their encounter with Moctezuma on the causeway leading into the city. According to Cortes, Cacamatzín disagreed with his uncle about how to handle the Spaniards, and even hatched a secret plot behind Moctezuma’s back. Can we believe what Cortes tells us about the internal politics of the Aztecs?
+<<case "Aztec_Priest">>
+It is difficult to overstate the importance of religion to Aztec society. Interactions between humans and nature, and the cycles of nature itself, were subject to the whims of the gods. In order for nature to remain in harmony, a basic requirement for Aztec survival, the gods had to be kept strong and happy. Priests, known in Nahuatl as tlamacazqui, oversaw all religious functions in Tenochtitlán and thus occupied a vital position in Aztec society. The Spaniards who first arrived in Mexico were shocked at the appearance of Aztec priests. They wore long, black robes and their hair was matted with dried blood. These were only one type of priest, however: those whose job it was to make sure the gods were appeased--gods who depended on human blood for their strength. Not all Aztec priests bore such a terrifying visage. Some oversaw cultural life in the city, while others were in charge of education. Priests played a role in almost every facet of Aztec life.
+<<case "Pochteca">>
+Pochteca were long-distance traders who travelled throughout the Aztec empire, working on behalf of Aztec nobility. As such, they occupied a privileged position. Their role could only be inherited and they paid minimal tribute, usually in the form of merchandise, rather than labor or personal services. Over the generations, pochteca came to occupy an increasingly important position in Aztec society. As they moved throughout the empire, they functioned not only as traders but as spies, carrying information from conquered territories back to the heart of the Aztec Empire, Tenochtitlán. Finally, pochteca played an important religious role, purchasing goods and slaves for the purpose of ritual sacrifice.
+<<case "Xicotencatl_Elder">>
+With the exception of the Lienzo de Tlaxcala, written during the 1580s, the Tlaxcalans left few records of their own. Much of what we know of them comes to us from Spanish and Aztec sources that reveal little about their internal workings. For 200 years, the Tlaxcalans resisted Aztec dominance, fending off Aztec advances time and again, until they remained an independent enclave surrounded on all sides by the Aztec Empire. The Tlaxcalan Confederation was composed of numerous settlements and likely boasted a population of 150,000 by the time the Spanish arrived in 1519. Despite being the sworn enemies of the Aztecs, the Tlaxcalans belonged to the same Nahua ethnic group, shared the same language, and worshipped many of the same gods. The two groups existed in a near-constant state of war, and yet both sides benefited from this. They regularly engaged in conflicts known as “Flower Wars,” which were ceremonial battles fought for the purpose of claiming prisoners for human sacrifice. In 1519, Xicotencatl the Elder was the aging leader of Tlaxcala. He maintained his position of control, but potential successors were watching his every move, eager to take his place.
+<<case "Xicotencatl_Younger">>
+With the exception of the Lienzo de Tlaxcala, written during the 1580s, the Tlaxcalans left few records of their own. Much of what we know of them comes to us from Spanish and Aztec sources that reveal little about their internal workings. For 200 years, the Tlaxcalans resisted Aztec dominance, fending off Aztec advances time and again, until they remained an independent enclave surrounded on all sides by the Aztec Empire. The Tlaxcalan Confederation was composed of numerous settlements and likely boasted a population of 150,000 by the time the Spanish arrived in 1519. Despite being the sworn enemies of the Aztecs, the Tlaxcalans belonged to the same Nahua ethnic group, shared the same language, and worshipped many of the same gods. The two groups existed in a near-constant state of war, and yet both sides benefited from this. They regularly engaged in conflicts known as “Flower Wars,” which were ceremonial battles fought for the purpose of claiming prisoners for human sacrifice. Xicotencatl the Younger was a bold young warrior and heir to his father’s throne. Blood didn’t necessarily equal allegiance among Tlaxcalan nobility, however, and the young Xicotencatl was known to disagree with his father’s positions.
+<<case "Maxixcatl">>
+With the exception of the Lienzo de Tlaxcala, written during the 1580s, the Tlaxcalans left few records of their own. Much of what we know of them comes to us from Spanish and Aztec sources that reveal little about their internal workings. For 200 years, the Tlaxcalans resisted Aztec dominance, fending off Aztec advances time and again, until they remained an independent enclave surrounded on all sides by the Aztec Empire. The Tlaxcalan Confederation was composed of numerous settlements and likely boasted a population of 150,000 by the time the Spanish arrived in 1519. Despite being the sworn enemies of the Aztecs, the Tlaxcalans belonged to the same Nahua ethnic group, shared the same language, and worshipped many of the same gods. The two groups existed in a near-constant state of war, and yet both sides benefited from this. They regularly engaged in conflicts known as “Flower Wars,” which were ceremonial battles fought for the purpose of claiming prisoners for human sacrifice. Maxixcatl was a lesser King of Tlaxcala who had his eye on the elderly Xicotencatl’s throne. Long before the arrival of the Spaniards, he was already attempting to outmaneuver the valiant young Xicotencatl to become the next huey tlatoani of the Tlaxcalan Confederation.
+<</switch>>
+:
+ <div id="statsPicker"></div>
+ <<print statPickerInit()>>
+ 
+<div  class="show">
+You need to assign points to your character to continue.
+</div>
+<div class="hide">
+<<switch $faction>>
+<<case "Aztecs">>
+Are you ready to [[begin your journey|The Aztec Legend of Queztalcoatl]]?
+<<case "Tlaxcalans">>
+Are you ready to [[begin your journey|The Tlaxcalan Legend of Quetzalcoatl]]?
+<</switch>>
+<<switch $role>>
+<<case "Alvarado" OR "Garrido" OR "Cristobal">>
+Are you ready to [[begin your journey|Cortes' Men leave Santiago]]? 
+<<case "Cortes">>
+Are you ready to [[begin your journey|Cortes Leaves Santiago]]? 
+<<case "Mariana">>
+Are you ready to [[begin your journey|Malinche's Childhood]]?
+<<case "Aguilar">>
+Are you ready to [[begin your journey|Aguilar Among the Maya]]?
+<</switch>>
+</div>
+:: The Spaniards Decide to Continue {"position":"934,654","size":"100,100"}
+<<set $Span_Cuba to $Span_Cuba.toLowerCase()>>
+<<if $Span_Cuba is "no">>
+[[You cannot yet continue|Spaniards Leave Cuba]]
+<<elseif $Span_Cuba is "yes">>
+Now that you've made a decision, you can move forward.
+<<switch $role>>
+<<case "Cristobal" OR "Alvarado" OR "Garrido">>
+But why are you moving forward? 
+Cortés has <<link "totally inspired you" "Spaniards Send a Letter">><<set $Cortes_Charisma+=1>><</link>> with his vision for what lays ahead! 
+Cortés is clearly <<link "much smarter than Velazquez" "Spaniards Send a Letter">><<set $Cortes_Wisdom+=1>><</link>> and he knows the path forward is filled with glory and riches! 
+Cortés has <<link "threatened you" "Spaniards Send a Letter">><<set $Cortes_Strength+=1>><<set $Cortes_Wisdom-=1>><</link>> with what he will do to you if you don't follow! 
+Cortés has not <<link "convinced you" "Spaniards Send a Letter">><<set $Cortes_Charisma-=1>><<set $Cortes_Wisdom-=1>><</link>>  but now you are stuck on this boat and outnumbered!
+<<case "Cortes">>
+Cortes, you have convinced your men somehow.  As you move to the next page, note that you may have gained or lost points in Charisma, Wisdom, Strength, or Loyalty. You may [[continue on your adventure|Spaniards Send a Letter]], but this experience has marked you, laying the groundwork of your future leadership.
+<</switch>>
+<</if>>
+:: Maya Gossip {"position":"416,369","size":"100,100"}
+<b>Yich’ak-k’ak’:</b> <i>Jo'oljeak, táan te' k'íiwiko' tu'ux tin k'ajóoltaj u juntúul máak Tulum. Ku beetik jump'éel k'iino'ob, táan paakat le k'áak'náabo' ka tu yilaj jump'éel nuxi' naj chíikpajal ichil le ja'o'. Le najo' Náats' Amal ka'atéen asab yéetel xiibo'obo' le kaajo' múuch'o'ob utia'al in wil le najo'. Ka le najo' Náats' páajchajo'obij wil táan Chuup yéetel wíiniko'ob yéetel yoot'el n wíinkilil yéetel ya'ab tso'otsel. Xiibo'obo' Tulum ma' sabían tu'ux venía le naja', ba'ale' tu yilo'ob toop. Tu beetajo'ob juum ka menta'abij tunicho'ob ti' le k'áak'náabo'. Le najo' sunaj ka lanchajal. </i>
+<i><b>Chak-balam:</b> <i>Ba'ax ts'o'ok u yilik le najo' ti' uláak' ba'ali'. Yojlo'ob tu'ux tali'.</i>
+<i><b>Yich’ak-k’ak’:</b> <i>lol Jach jela'an. In wa'alike' u K'a'abeta Jach yila'al.</i>
+<i><b>Chak-balam:</b> <i>K wíiniko'ob yan u bino'ob ja' pa'atik. Wa le najo' k'uchul yóok'ol le ja' ti' leti'ob ko'on jóok'ol.</i>
+Your task is to figure out what the two men said. Once you understand what’s going on, [[how does it make you feel|Maya Gossip Response]]?
+:: Maya Gossip Response {"position":"304,468","size":"100,100"}
+<<switch $role>>
+<<case "Cortes">>
+[[Happy]] [[Angry]] [[Scared]] [[Sad]]
+<<case "Aguilar">>
+You've mulled over what you heard while sweeping the temple steps.  How are you feeling right now?
+This exchange <<link "makes you really angry" "Angry">><<set $Aguilar_Wisdom-=1>><</link>>!
+You can't believe how <<link "happy this makes you" "Happy">><<set $Aguilar_Wisdom+=1>><</link>>!
+What they said is leaving you feeling <<link "very scared" "Scared">><<set $Aguilar_Wisdom-=1>><</link>>!
+These rumors <<link "make you sad" "Sad">><<set $Aguilar_Wisdom-=1>><</link>>!
+<</switch>>
+:: Angry {"position":"287,671","size":"100,100"}
+You've lost a wisdom point! Your wisdom is now <<print $Aguilar_Wisdom>>.
+A ship full of bearded men has been seen off the coast of Tulum. LINK TO STORYMAPS
+After all these years among the Maya, you should have a better grasp of their language. You might want to brush up on your translation skills, because they’re going to be key to your survival very soon! Your fortunes are about to change. 
+Translation: 
+<b>Yich’ak-k’ak’:</b> <i>Yesterday, I was in the park where I met a man from Tulum. A few days ago, he was looking out to sea and saw a big house appear in the water. The house came closer and closer and the men of the city gathered to see the house. When the house got close they could see that it was full of men with pale skin and lots of hair. Tulum's men didn't know where this house came from, but they saw trouble. They made noise and fired rocks into the sea. The house turned back and disappeared.</i>
+<b>Chak-balam:</b> <i>Did they see the house another time? Do they know where it came from?</i>
+<b>Yich’ak-k’ak’:</b> <i>No. It is strange. I think we should keep watch.
+<b>Chak-balam:</b> <i>Our men will go to the water to wait. If the house arrives on our water we will make them leave.</i>
+Now it is time to [[head to the coast |Aguilar Receives a Letter]]. You pack up and flee the village alone.
+:: Happy {"position":"450,602","size":"100,100"}
+You've gained a wisdom point! Your wisdom is now <<print $Aguilar_Wisdom>>.
+A ship full of bearded men has been seen off the coast of Tulum. LINK TO STORYMAPS
+After eight years, you thought this day would never come! You can barely contain your excitement as you prepare for your escape.
+Translation: 
+<b>Yich’ak-k’ak’:</b> <i>Yesterday, I was in the park where I met a man from Tulum. A few days ago, he was looking out to sea and saw a big house appear in the water. The house came closer and closer and the men of the city gathered to see the house. When the house got close they could see that it was full of men with pale skin and lots of hair. Tulum's men didn't know where this house came from, but they saw trouble. They made noise and fired rocks into the sea. The house turned back and disappeared.</i>
+<b>Chak-balam:</b> <i>Did they see the house another time? Do they know where it came from?</i>
+<b>Yich’ak-k’ak’:</b> <i>No. It is strange. I think we should keep watch.
+<b>Chak-balam:</b> <i>Our men will go to the water to wait. If the house arrives on our water we will make them leave.</i>
+Now it is time to [[head to the coast |Aguilar Receives a Letter]]. You pack up and flee the village alone.
+:: Scared {"position":"581,593","size":"100,100"}
+You've lost a wisdom point! Your wisdom is now <<print $Aguilar_Wisdom>>.
+A ship full of bearded men has been seen off the coast of Tulum. LINK TO STORYMAPS
+After all these years among the Maya, you should have a better grasp of their language. You might want to brush up on your translation skills, because they’re going to be key to your survival very soon! Your fortunes are about to change. 
+Translation: 
+<b>Yich’ak-k’ak’:</b> <i>Yesterday, I was in the park where I met a man from Tulum. A few days ago, he was looking out to sea and saw a big house appear in the water. The house came closer and closer and the men of the city gathered to see the house. When the house got close they could see that it was full of men with pale skin and lots of hair. Tulum's men didn't know where this house came from, but they saw trouble. They made noise and fired rocks into the sea. The house turned back and disappeared.</i>
+<b>Chak-balam:</b> <i>Did they see the house another time? Do they know where it came from?</i>
+<b>Yich’ak-k’ak’:</b> <i>No. It is strange. I think we should keep watch.
+<b>Chak-balam:</b> <i>Our men will go to the water to wait. If the house arrives on our water we will make them leave.</i>
+Now it is time to [[head to the coast |Aguilar Receives a Letter]]. You pack up and flee the village alone.
+:: Sad {"position":"735,591","size":"100,100"}
+You've lost a wisdom point! Your wisdom is now <<print $Aguilar_Wisdom>>.
+A ship full of bearded men has been seen off the coast of Tulum. LINK TO STORYMAPS
+After all these years among the Maya, you should have a better grasp of their language. You might want to brush up on your translation skills, because they’re going to be key to your survival very soon! Your fortunes are about to change. 
+Translation: 
+<b>Yich’ak-k’ak’:</b> <i>Yesterday, I was in the park where I met a man from Tulum. A few days ago, he was looking out to sea and saw a big house appear in the water. The house came closer and closer and the men of the city gathered to see the house. When the house got close they could see that it was full of men with pale skin and lots of hair. Tulum's men didn't know where this house came from, but they saw trouble. They made noise and fired rocks into the sea. The house turned back and disappeared.</i>
+<b>Chak-balam:</b> <i>Did they see the house another time? Do they know where it came from?</i>
+<b>Yich’ak-k’ak’:</b> <i>No. It is strange. I think we should keep watch.
+<b>Chak-balam:</b> <i>Our men will go to the water to wait. If the house arrives on our water we will make them leave.</i>
+Now it is time to [[head to the coast|Aguilar Receives a Letter]]. You pack up and flee the village alone.
+:: The Aztec Quest for Legitimacy {"position":"1001,400","size":"100,100"}
+Your task is to find the heart of Quetzalcoatl and secure his blessing. Do not hesitate in this journey, for you are not the only ones seeking this treasure. Your sworn enemies, the Tlaxcalans, have fought valiantly against you for many years and have resisted conquest. They would deny you the blessing of Quetzalcoatl to claim it for themselves, a feat which would surely fuel their warriors and steel them in their struggle against you.
+To begin your journey, LINK TO TREASURE HUNT STORY MAP. Here you will find a map of the most important temples in central Mexico. Each site includes a codex that tells you what is found there. Only one temple contains the heart of Quetzalcoatl. Once you have found it, enter the name of the temple in the box below. 
+<<if $T_Q_Heart is not "cholula">>
+The temple that holds Queztalcoatl's heart is <<textbox "$A_Q_Heart" "Hello" "finish">>.
+Click through to find out if you have found [[Quetzalcoatl's Heart|Quest Conclusion]]
+<<elseif $T_Q_Heart is "cholula">>
+Your quest has failed. The Tlaxcalans have found [[Quetzalcoat'ls Heart|Quest Conclusion]].
+<</if>>
+:: Quest Conclusion {"position":"1073,620","size":"100,100"}
+<<set $T_Q_Heart to $T_Q_Heart.toLowerCase()>>
+<<set $A_Q_Heart to $A_Q_Heart.toLowerCase()>>
+[[The Omen|The Omen]]
+[[Rumors from the Coast]]
+:: The Tlaxcalan Quest for Legitimacy {"position":"1252,400","size":"100,100"}
+Your task is to find the heart of Quetzalcoatl and secure his blessing for yourselves. If you succeed, you will deny legitimacy to the Aztecs and maintain the balance of power in central Mexico. The blessing of Quetzalcoatl will surely fuel your warriors and steel them in their struggle against the Aztecs. Do not hesitate in this quest, for you are in a race against the most powerful warriors of the Aztec Empire.
+To begin your journey, LINK TO TREASURE HUNT STORY MAP. Here you will find a map of the most important temples in central Mexico. Each site includes a codex that tells you what is found there. Only one temple contains the heart of Quetzalcoatl. Once you have found it, enter the name of the temple in the box below. NEED TEXT BOX FOR CHOLULA
+<<if $A_Q_Heart is "Cholula">>
+Your quest has failed. The Aztecs have found [[Quetzalcoatl's Heart|Quest Conclusion]].
+<<elseif $A_Q_Heart is not "Cholula">>
+The temple that holds Queztalcoatl's heart is <<textbox "$T_Q_Heart" "">>.
+Click through to find out if you have found [[Quetzalcoat'ls Heart|Quest Conclusion]]
+<</if>>
+:: Act 3, Scene 1: The Great Encounter {"position":"2752,203","size":"100,100"}
+Causeway leading into Tenochtitlán, November 8th, 1519
+The Spaniards’ journey is finally done and with their Tlaxcalan companions at their side, they descend upon the city of Tenochtitlán. As the city comes into view, Cortes and his men can barely believe their eyes. Situated in the middle of Lake Texcoco, Tenochtitlán is a marvel of engineering, connected to the lake’s shores by a series of causeways. As the Spaniards approach, they see an enormous temple rising up from the middle of the city. 
+ 
+An Aztec delegation comes out to meet them. Among them is none other than the Emperor Moctezuma himself. Though he is barefoot, Moctezuma is richly dressed and escorted by his brother, Cuitlahuac, and his Prime Minister, Tlacaelel the Younger. Cortes dismounts his horse and approaches the Emperor to embrace him, sparking horror among the Aztecs, who prevent Cortes from laying hands upon their leader.
+ 
+A ritual then unfolds, with each of the Aztecs bowing to kiss the ground. Each then greets Cortes in turn. When he reaches Moctezuma, Cortes presents the Emperor with a necklace of pearls and glass beads. Moctezuma, in turn, places two necklaces adorned with golden shrimp around the neck of Cortes. 
+ 
+All three factions mingle on the causeway, getting to know each other and formulating their next move. Use this opportunity to get a sense of the opposing side. What do you think they are planning? Who do you trust?
+ 
+[[Act 3, Scene 2: Moctezuma Speaks]]
+:: Act 3, Scene 2: Moctezuma Speaks {"position":"2605,307","size":"100,100"}
+Causeway leading into Tenochtitlán, November 8th, 1519
+The crowd quiets and it becomes clear that Moctezuma, the huey tlatoani, is about to speak. He delivers an astonishing address, in which he announces the Aztecs’ next move. 
+ 
+[[A Friendly Invitation]]
+[[Moctezuma Respectfully Asks the Spaniards and their Allies to Leave]]
+[[Aztecs Attack: Battle on the Causeway!]]
+:: Act 3: The Great Encounter {"position":"2643,13","size":"100,100"}
+[[Secret Information Drop Moctezuma and Tlacaelel the Younger]]
+[[Act 3, Scene 1: The Great Encounter]]
+:: Secret Information Drop Moctezuma and Tlacaelel the Younger {"position":"2481,188","size":"100,100"}
+Moctezuma and Tlacaelel the Younger, the Spaniards are approaching your city.  As the rulers of the Empire, it is up to you to decide how to treat the strangers.  In the next scene, you and the rest of your faction will have the opportunity to get to these strangers in your city. However, at the end of the day, DAY 10, after everybody has had a chance to get to know each other, you should be prepared to advance to the next scene with a decision you have secretly made together.  Assess the situation in the next discussion board conversation, and then decide how you want to behave towards the Spaniards and their allies. 
+ 
+You may choose to consult the rest of your faction about your options, or you may decide between yourselves. 
+ 
+Option 1: Invite the Spaniards to be your personal guests and offer them shelter in the palace. 
+ 
+Option 2: Declare war and attack the Spaniards
+ 
+Option 3: Order the Spaniards to leave the city.
+ 
+Click through to the page titled "Moctezuma Speaks", follow the link to the main discussion board, and post your decision for all to read by the beginning of DAY 11.
+[[Act 3, Scene 1: The Great Encounter]]
+:: A Friendly Invitation {"position":"2517,424","size":"100,100"}
+Causeway leading into Tenochtitlán, November 8th, 1519
+ 
+Moctezuma invites the Spaniards and their allies into the city, to stay in the palace as his personal guests. 
+ 
+Spaniards, you are intrigued by Moctezuma’s offer. Why has he invited you into the city? What are his motives? Do you trust him? Consult among your faction and decide upon one of the following choices:
+ 
+Option 1: You refuse the invitation and attack the Aztecs. You ask the Tlaxcalans to join you.
+ 
+Option 2: You refuse the invitation and return peacefully to Tlaxcala.
+ 
+Option 3: You accept the invitation and enter the city, taking your Tlaxcalan companions with you.
+ 
+[[Battle on the Causeway: Spaniards Attack]]
+[[Spaniards Return to Tlaxcala]]
+[[Into Tenochtitlan]]
+:: Moctezuma Respectfully Asks the Spaniards and their Allies to Leave {"position":"2798,428","size":"100,100"}
+Causeway leading into Tenochtitlán, November 8th, 1519
+ 
+The Emperor Moctezuma has respectfully greeted his visitors, presenting them with lavish gifts. As the end of their meeting approaches, he asks the Spaniards to kindly leave his city and take their Tlaxcalan friends with them. 
+ 
+Spaniards, you must decide how to respond and post your decision to the main discussion board. You have 2 choices:
+ 
+Option 1: Attack the Aztecs and ask your Tlaxcalan allies to join you.
+ 
+Option 2: Return to Tlaxcala.
+[[Battle on the Causeway: Spaniards Attack]] 
+[[Spaniards Return to Tlaxcala]]
+:: Aztecs Attack: Battle on the Causeway! {"position":"3027,372","size":"100,100"}
+Causeway leading into Tenochtitlán, November 8th, 1519
+Hostilities have broken out, and the Aztecs nearly overwhelm the smaller Spanish force. As they battle on the causeway, it’s up to the Tlaxcalans to decide who they will support. 
+ 
+Tlaxcalans, whose side are you really on? You have have 2 choices: 
+ 
+Option 1: Support the Spaniards and defend them against your sworn enemies, the Aztecs.
+ 
+Option 2: Turn against your Spanish companions and help drive them out of the city of Tenochtitlán.
+[[Battle on the Causeway: Tlaxcala sides with Spaniards]]
+[[Battle on the Causeway: Tlaxcala sides with Aztecs]]
+:: Battle on the Causeway: Spaniards Attack {"position":"2560,599","size":"100,100"}
+Double-click this passage to edit it.
+:: Spaniards Return to Tlaxcala {"position":"2767,598","size":"100,100"}
+Double-click this passage to edit it.
+:: Into Tenochtitlan {"position":"2403,594","size":"100,100"}
+Double-click this passage to edit it.
+:: Battle on the Causeway: Tlaxcala sides with Spaniards {"position":"2965,600","size":"100,100"}
+[[Spaniards Return to Tlaxcala]]
+:: Battle on the Causeway: Tlaxcala sides with Aztecs {"position":"3145,604","size":"100,100"}
+[[Game Over: Aztecs Win the Battle on the Causeway]]
+:: Game Over: Aztecs Win the Battle on the Causeway {"position":"3008,1149","size":"100,100"}
+Double-click this passage to edit it.
+:: Act 4: Tenochtitlan {"position":"3362,2","size":"100,100"}
+[[Act 4, Scene 1: The Aztecs Give the visitors a Tour of Tenochtitlan]]
+:: Act 4, Scene 1: The Aztecs Give the visitors a Tour of Tenochtitlan {"position":"3362,152","size":"100,100"}
+Tenochtitlán, November 1519
+ 
+Together, the Aztecs, the Spaniards and the Tlaxcalans enter the city of Tenochtitlán. The streets are lined with curious Aztec citizens, watching as the strangers pass. Moctezuma takes the strangers into his palace and makes them comfortable as his guests.
+ 
+Later, the Aztecs take the Spaniards and Tlaxcalans out, showing them the wonders of the city. Years later, Bernal Diaz would recall everything that they saw and experienced in those first days in Tenochtitlán. 
+Read his account here:
+HOW DO WE ADD DIAZ'S ACCOUNT?  LINK TO A GOOGLE BOOK VERSION?
+ 
+Spaniards and Tlaxcalans, based on everything you’ve just read, what would you like to ask the Aztecs? Go to the main discussion board, where each of you must post at least one question to your hosts.
+Aztecs, you must respond to all questions in order to advance to the next stage of the game. This must be complete by 11:59 pm DAY 14.
+Remember, your journey is far from over, and this is a rare opportunity for everybody to gather information about the other factions. What you ask--or answer--now could make all the difference between life or death, glory or sacrifice, later.
+ 
+[[Act 2, Scene 2: Moctezuma's Arrest]]
+:: Act 2, Scene 2: Moctezuma's Arrest {"position":"3362,302","size":"100,100"}
+[[Moctezuma's Arrest: Spaniards explain themselves to Tlaxcala]]
+[[Moctezuma's Arrest:  The Aztecs React]]
+:: Moctezuma's Arrest: Spaniards explain themselves to Tlaxcala {"position":"3286,436","size":"100,100"}
+[[The Festival of Toxcatl]]
+:: Moctezuma's Arrest:  The Aztecs React {"position":"3510,440","size":"100,100"}
+[[The Festival of Toxcatl]]
+:: The Festival of Toxcatl {"position":"3417,596","size":"100,100"}
+[[The Festival of Toxcatl: The Spaniards]]
+[[The Festival of Toxcatl: The Aztecs]]
+[[The Festival of Toxcatl: The Tlaxcalans]]
+:: The Festival of Toxcatl: The Spaniards {"position":"3267,746","size":"100,100"}
+[[La Noche Triste]]
+:: The Festival of Toxcatl: The Aztecs {"position":"3417,745","size":"100,100"}
+[[La Noche Triste]]
+:: The Festival of Toxcatl: The Tlaxcalans {"position":"3567,746","size":"100,100"}
+[[La Noche Triste]]
+:: La Noche Triste {"position":"3432,978","size":"100,100"}
+[[Tlaxcalans Respond to La Noche Triste]]
+:: Tlaxcalans Respond to La Noche Triste {"position":"3432,1128","size":"100,100"}
+[[Game Over: Aztecs Win La Noche Triste]]
+[[The Tlaxcalans and Spaniards Flee]]
+[[The Aztecs Regroup]]
+:: The Tlaxcalans and Spaniards Flee {"position":"3357,1278","size":"100,100"}
+Double-click this passage to edit it.
+:: The Aztecs Regroup {"position":"3507,1278","size":"100,100"}
+Double-click this passage to edit it.
+:: Game Over: Aztecs Win La Noche Triste {"position":"3182,1141","size":"100,100"}
+Double-click this passage to edit it.
+:: Return to Malinche's Childhood {"position":"198,361","size":"100,100"}
+This is what history will judge you on.  Think carefully, and [[create a record thta tells your story|Malinche's Childhood]].
+:: Spaniards Send a Letter {"position":"797,743","size":"100,100"}
+Spaniards, you have been at sea for many weeks when you land on the shores of Cozumel. LINK TO STORYMAP
+To your surprise, the residents of the island see you and begin shouting words that sound distinctly like “Castilan, Castilan!” You question the local people, who tell that they’ve heard rumors of Spaniards living as slaves two days journey inland. Cortés, excited at the news, writes a letter:
+“Gentlemen and brothers, here in Cozumel I have learnt that you are captives in the hands of a Cacique, and I pray you that you come here to Cozumel at once, and for this purpose I have sent a ship with soldiers, in case you have need of them, and a ransom to be paid to those Indians with whom you are living. The ship will wait eight days for you. Come in all haste, and you will be welcomed and protected. I am here at this Island with five hundred soldiers and eleven ships, in which I go on, please God, to a town called Tabasco or Potonchan.”
+<<switch $role>>
+<<case "Cortes">>
+You find a pair of local messengers and instructs them to find these mysterious Spanish slaves. You tells them to deliver your letter, along with a ransom of beads that they may use to pay the men’s owners. 
+You settle in and <<link "wait for a response" "Spaniards arrive at Yucatan">><<set $Letter="sent">><</link>>.
+<<case "Cristobal" OR "Alvarado" OR "Garrido">>
+Cortés finds a pair of local messengers and instructs them to find these mysterious Spanish slaves. He tells them to deliver his letter, along with a ransom of beads that they may use to pay the men’s owners. 
+You settle in and [[wait wait for a response|Spaniards arrive at Yucatan]].
+<</switch>>
+:: Aguilar Receives a Letter {"position":"538,746","size":"100,100"}
+Since hearing the rumor of the strangers on the coast, you have been quietly plotting your escape. Unfortunately, the opportunity to flee has not yet presented itself. 
+<<if $Letter is not "sent">>
+You continue to bide your time and wait for your opening.
+<<elseif $Letter is "sent">>
+A day after you first hear the rumor, you are approached by the Mayan lord who has been your master these long years. He tells you that a pair of messengers have arrived from the coast, bearing beautiful gifts. A group of strangers have come who desire your release and they have paid him handsomely. Your master informs that you are free and hands you a letter. It reads: 
+“Gentlemen and brothers, here in Cozumel I have learnt that you are captives in the hands of a Cacique, and I pray you that you come here to Cozumel at once, and for this purpose I have sent a ship with soldiers, in case you have need of them, and a ransom to be paid to those Indians with whom you are living. The ship will wait eight days for you. Come in all haste, and you will be welcomed and protected. I am here at this Island with five hundred soldiers and eleven ships, in which I go on, please God, to a town called Tabasco or Potonchan.”
+You are elated at the message and set out in search of your former companion, Gonzalo Guerrero. Together, you were the sole survivors of the wreck that left you here among the Maya, but unlike you, Guerrero had adopted this new land and forsaken his one true God. Unlike you, Guerrero has not lived out these long years as a slave.
+When you find him, you share the letter. Guerrero reads it and, much to your dismay, he refuses to leave. “Brother Aguilar,” he says to you, “I am married and have three children and the Indians look on me as a Cacique and captain in wartime,--You go and God be with you, but I have my face tattooed and my ears pierced, what would the Spaniards say should they see me in this guise?”
+You inform Guerrero that God will never forgive him and warn him that he will be punished for his sins. And then you [[head for the coast|Spaniards arrive at Yucatan]].
+<</if>>
